@@ -75,6 +75,7 @@ function onClick(){
                 <p>${item.address}</p>
                 <p>${item.tel}</p>
                 <p>${item.opentime}</p>
+                <p>${item.pr.pr_short}</p>
                 <a href="${item.url}">ぐるなび店舗ページへ</a>
               </div>
             `);
@@ -95,6 +96,8 @@ function onClick(){
             $('#address').text(item.address);
             $('#tel').text(item.tel);
             $('#opentime').text(item.opentime);
+            $('#pr').text(item.pr.pr_long);
+            $('#link').attr("href",item.url);
             //shop_imageというタグの中のsrcという属性にitemのimage_url.shop_imageを入れる
           });
           ////////////////////////////////////////
