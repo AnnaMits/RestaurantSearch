@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ぐるなびAPIテスト</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="search.js"></script>
+  <link rel="stylesheet" href="stylesheet.css" />
+</head>
+<body>
+  <div class="top">
+    <h1>Reasturant Search</h1>
+  </div>
+  <div class = "detail_list">
+    <form name="range">
+      <p>現在地から<span id = "span2"></span></p>
+      <p>ページ valueの表示：<span id = "span3"></span></p>
+      <p>選択された条件：<span id = "span4"></p>
+      <input type = "radio" name="radius" value="1"> 300m圏内
+      <input type = "radio" name="radius" value="2" checked> 500m圏内
+      <input type = "radio" name="radius" value="3"> 1km圏内
+      <input type = "radio" name="radius" value="4"> 2km圏内
+      <input type = "radio" name="radius" value="5"> 3km圏内
+    </form>
+  
+    <form name="form2">
+      <div class = "detail">
+        <input type = "checkbox" name = "check" value = "no_smoking">禁煙席あり
+        <input type = "checkbox" name = "check" value = "wifi">wifiあり
+        <input type = "checkbox" name = "check" value = "outret">電源あり
+        <input type = "checkbox" name = "check" value = "parking">駐車場あり
+        <input type = "checkbox" name = "check" value = "takeout">テイクアウトあり
+      </div>
+      <div class = "detail">
+        <input type = "checkbox" name = "check" value = "card">クレジットカード利用可
+        <input type = "checkbox" name = "check" value = "e_money">電子マネー利用可
+      </div>
+      <div class = "detail">
+        <input type = "checkbox" name ="check" value = "breakfast">モーニングあり
+        <input type = "checkbox" name ="check" value = "lunch">ランチ営業あり
+        <input type = "checkbox" name ="check" value = "late_lunch">14時以降のランチあり
+        <input type = "checkbox" name ="check" value = "midnight">深夜営業あり
+      </div>
+    </form>
+    <input type="button" value="検索" onclick="onClick();" >
+  </div>
+
+    <!-- 検索結果一覧画面 初期は隠す-->
+    <div hidden id="result_list">
+      <h1>検索結果</h1>
+      <button id="prev" onclick="onClickPrev();">前のページ</button>
+      <button id="next" onclick="onClickNext();">次のページ</button>
+      <div class= "list">
+        <ul id = "result"></ul><!--店の一覧-->
+        <ul id = "pr"></ul>
+      </div>
+      <button id="prev" onclick="onClickPrev();">前のページ</button>
+      <button id="next" onclick="onClickNext();">次のページ</button>
+    </div>
+
+  <!-- 個別の詳細画面 -->
+  <div hidden id="result_detail">
+    <h1>店舗詳細情報</h1>
+    <p id = "name"></p>
+    <p id = "address"></p>
+    <p id = "tel"></p>
+    <p id = "opentime"></p>
+    <p id = "link"></p>
+    <p><img src="" id="shop_image1"></p>
+    <p><img src="" id="shop_image2"></p>
+    <input type="button" value="検索一覧に戻る" onclick="onClickReturn();" >
+  </div>
+  <footer>
+    <div class="container">
+      <a href="https://api.gnavi.co.jp/api/scope/" target="_blank">
+      <img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
